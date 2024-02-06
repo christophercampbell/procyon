@@ -1,27 +1,26 @@
-# Neutrino
-**MVP IBC connected Cosmos SDK Chain**
+# Mini - A minimal Cosmos SDK chain
 
-While it is technically possible to bootstrap an SDK application with fewer modules, Neutrino offers a minimal application that can still facilitate governance and ibc use cases.
+This repository contains an example of a tiny, but working Cosmos SDK chain.
+It uses the least modules possible and is intended to be used as a starting point for building your own chain, without all the boilerplate that other tools generate. It is a simpler version of Cosmos SDK's [simapp](https://github.com/cosmos/cosmos-sdk/tree/main/simapp).
 
-**Essential Modules**
-- Auth
-- Bank
-- Distribution
-- Staking
-- Consensus Params
+`Minid` uses the **latest** version of the [Cosmos-SDK](https://github.com/cosmos/cosmos-sdk).
 
-**IBC Related Modules**
-- Gov
-- Upgrade
-- Params
-- IBC
-- IBC Transfer
+## How to use
 
-### Bootstrap
-#### Building
+In addition to learn how to build a chain thanks to `minid`, you can as well directly run `minid`.
 
-#### Liveness
+### Installation
+
+Install and run `minid`:
+
+```sh
+git clone git@github.com:cosmosregistry/chain-minimal.git
+cd chain-minimal
+make install # install the minid binary
+make init # initialize the chain
+minid start # start the chain
 ```
-make start-localnet
-```
-### Testnet
+
+## Useful links
+
+* [Cosmos-SDK Documentation](https://docs.cosmos.network/)
