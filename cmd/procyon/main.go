@@ -8,7 +8,7 @@ import (
 
 	"github.com/polygon/procyon/app"
 	"github.com/polygon/procyon/app/params"
-	"github.com/polygon/procyon/cmd/minid/cmd"
+	"github.com/polygon/procyon/cmd/procyon/cmd"
 )
 
 func main() {

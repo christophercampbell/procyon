@@ -1,17 +1,17 @@
-# Mini - A minimal Cosmos SDK chain
+# Procyon - A minimal Cosmos SDK chain
 
-This repository contains an example of a tiny, but working Cosmos SDK chain (A copy of chain-minimal).
+Procyon is the name of the star that represents maera (the hound) in the Virgo cluster. It is a copy of cosmos sdk `chain-minimal`, and is being used for researching module development.
 
-`Minid` uses the **latest** version of the [Cosmos-SDK](https://github.com/cosmos/cosmos-sdk).
+`procyon` uses the **latest** version of the [Cosmos-SDK](https://github.com/cosmos/cosmos-sdk).
 
 ### Installation
 
-Install and run `minid`:
+Install and run `procyon`:
 
 ```sh
-make install # install the minid binary
+make install # install the procyon binary
 make init # initialize the chain
-minid start # start the chain
+procyon start # start the chain
 ```
 
 ## Useful links
@@ -22,3 +22,9 @@ minid start # start the chain
 ## Used for cosmos module development
 
 FIXME: Requires (for now) a local version of `envoy` module which this copy of chain-minimal is being used to develop
+
+Parallel to this project, checkout the envoy module
+
+```shell
+git clone git@github.com:christophercampbell/envoy.git
+```
