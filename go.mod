@@ -1,16 +1,17 @@
-module github.com/cosmosregistry/chain-minimal
+module github.com/polygon/procyon
 
 go 1.21
 
 toolchain go1.21.0
 
 replace (
-	// Local module integration
-	github.com/polygon/envoy => ../envoy-module/
 
 	// Fix upstream GHSA-h395-qcrw-5vmq vulnerability.
 	// TODO Remove it: https://github.com/cosmos/cosmos-sdk/issues/10409
 	github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.7.0
+
+	// Local module integration for dev convenience for now
+	github.com/polygon/envoy => ../envoy/
 
 	// Downgraded to avoid bugs in following commits which caused simulations to fail.
 	github.com/syndtr/goleveldb => github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
@@ -29,10 +30,11 @@ require (
 	github.com/cometbft/cometbft v0.38.2
 	github.com/cosmos/cosmos-db v1.0.0
 	github.com/cosmos/cosmos-sdk v0.50.3
-	github.com/polygon/envoy v0.0.0-00010101000000-000000000000
 	github.com/spf13/cobra v1.8.0
 	github.com/spf13/viper v1.17.0
 )
+
+require github.com/polygon/envoy v0.0.0-00010101000000-000000000000
 
 require (
 	cosmossdk.io/collections v0.4.0 // indirect

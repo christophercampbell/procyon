@@ -6,9 +6,9 @@ import (
 
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 
-	"github.com/cosmosregistry/chain-minimal/app"
-	"github.com/cosmosregistry/chain-minimal/app/params"
-	"github.com/cosmosregistry/chain-minimal/cmd/minid/cmd"
+	"github.com/polygon/procyon/app"
+	"github.com/polygon/procyon/app/params"
+	"github.com/polygon/procyon/cmd/minid/cmd"
 )
 
 func main() {
