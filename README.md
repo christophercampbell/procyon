@@ -14,7 +14,7 @@ make init # initialize the chain
 procyon start # start the chain
 ```
 
-# list test keys
+### list test keys
 
 ```shell
 procyon keys list --keyring-backend test
@@ -29,7 +29,7 @@ procyon keys list --keyring-backend test
   type: local
 ```
 
-## Envoy module
+### Envoy module
 
 FIXME: Requires (for now) a local version of `envoy` module which this copy of chain-minimal is being used to develop
 
@@ -39,15 +39,15 @@ Parallel to this project, checkout the envoy module
 git clone git@github.com:christophercampbell/envoy.git
 ```
 
-## create a lock
+#### create a lock
 
-This will not be how locks are created, the system will create/configure them internally for named lockable (node exclusive) actions.
+This will **not** be how locks are created, just useful for initial development. The system will create/configure them internally for named lockable (node exclusive) actions.
 
 ```shell
 procyon tx envoy create lock1 mini16ajnus3hhpcsfqem55m5awf3mfwfvhpp36rc7d 666 12 --from alice --yes
 ```
 
-## read a lock
+#### read a lock
 
 ```shell
 procyon query envoy get-lock lock1
