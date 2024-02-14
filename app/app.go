@@ -130,12 +130,10 @@ func NewMiniApp(
 		&app.StakingKeeper,
 		&app.DistrKeeper,
 		&app.ConsensusParamsKeeper,
-
-		&app.EnvoyKeeper, // <---- ENVOY
+		&app.EnvoyKeeper,
 	); err != nil {
 		return nil, err
 	}
-
 	app.App = appBuilder.Build(db, traceStore, baseAppOptions...)
 
 	// register streaming services
