@@ -8,7 +8,6 @@ import (
 
 	dbm "github.com/cosmos/cosmos-db"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
-	envoykeeper "github.com/polygon/envoy/keeper" // <---- ENVOY
 
 	"cosmossdk.io/core/appconfig"
 	"cosmossdk.io/depinject"
@@ -39,7 +38,9 @@ import (
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 	_ "github.com/cosmos/cosmos-sdk/x/mint"    // import for side-effects
 	_ "github.com/cosmos/cosmos-sdk/x/staking" // import for side-effects
-	_ "github.com/polygon/envoy/module"        // <---- ENVOY
+
+	envoykeeper "github.com/polygon/envoy/keeper"
+	envoymodule "github.com/polygon/envoy/module"
 )
 
 // DefaultNodeHome default home directories for the application daemon
@@ -70,7 +71,8 @@ type MiniApp struct {
 	DistrKeeper           distrkeeper.Keeper
 	ConsensusParamsKeeper consensuskeeper.Keeper
 
-	EnvoyKeeper envoykeeper.Keeper
+	EnvoyKeeper  envoykeeper.Keeper
+	EnvoyTracker *envoymodule.Tracker
 
 	// simulation manager
 	sm *module.SimulationManager
@@ -131,6 +133,7 @@ func NewMiniApp(
 		&app.DistrKeeper,
 		&app.ConsensusParamsKeeper,
 		&app.EnvoyKeeper,
+		&app.EnvoyTracker,
 	); err != nil {
 		return nil, err
 	}
@@ -142,6 +145,8 @@ func NewMiniApp(
 	}
 
 	/****  Module Options ****/
+
+	app.SetPrepareProposal(app.EnvoyTracker.PrepareProposal)
 
 	// create the simulation manager and define the order of the modules for deterministic simulations
 	// NOTE: this is not required apps that don't use the simulator for fuzz testing transactions
